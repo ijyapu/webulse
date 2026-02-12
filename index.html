@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webulse | Websites + AI Automation</title>
+    <meta
+      name="description"
+      content="Webulse builds modern websites and AI automations that help businesses capture leads, respond faster, and scale."
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0B1220",
+              mist: "#0F172A",
+              pulse: "#6D28D9",
+              glow: "#22C55E",
+              sky: "#38BDF8",
+            },
+            boxShadow: {
+              soft: "0 12px 40px rgba(0,0,0,0.35)",
+            },
+            keyframes: {
+              floaty: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              shimmer: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "100%": { backgroundPosition: "100% 50%" },
+              },
+            },
+            animation: {
+              floaty: "floaty 6s ease-in-out infinite",
+              shimmer: "shimmer 6s linear infinite",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .bg-grid {
+        background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0);
+        background-size: 26px 26px;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+      }
+      .ring-soft {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      }
+      .grad-text {
+        background: linear-gradient(90deg, #a78bfa, #38bdf8, #22c55e);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      /* Reduce motion if user prefers */
+      @media (prefers-reduced-motion: reduce) {
+        .motion-safe\:animate-none { animation: none !important; }
+      }
+    </style>
+  </head>
+
+  <body class="bg-ink text-white antialiased">
+    <!-- Sticky header -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#top" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-soft">
+            <span class="text-lg font-black">W</span>
+          </span>
+          <span class="text-lg font-semibold tracking-tight">webulse</span>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm text-white/80 md:flex">
+          <a class="hover:text-white" href="#services">Services</a>
+          <a class="hover:text-white" href="#work">Work</a>
+          <a class="hover:text-white" href="#proof">Proof</a>
+          <a class="hover:text-white" href="#faq">FAQ</a>
+          <a
+            class="rounded-xl bg-pulse px-4 py-2 font-semibold text-white shadow-soft hover:opacity-90"
+            href="#contact"
+            >Contact</a
+          >
+        </nav>
+
+        <button
+          id="menuBtn"
+          class="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm md:hidden"
+          aria-label="Open menu"
+        >
+          Menu
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink md:hidden">
+        <div class="mx-auto max-w-6xl px-4 py-4">
+          <div class="flex flex-col gap-3 text-sm text-white/85">
+            <a class="hover:text-white" href="#services">Services</a>
+            <a class="hover:text-white" href="#work">Work</a>
+            <a class="hover:text-white" href="#proof">Proof</a>
+            <a class="hover:text-white" href="#faq">FAQ</a>
+            <a class="mt-2 rounded-xl bg-pulse px-4 py-2 text-center font-semibold text-white hover:opacity-90" href="#contact"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main id="top">
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid opacity-40"></div>
+
+        <!-- Glow blobs -->
+        <div class="pointer-events-none absolute -top-28 left-1/2 h-80 w-[46rem] -translate-x-1/2 rounded-full bg-pulse/25 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-40 left-1/3 h-80 w-[46rem] -translate-x-1/2 rounded-full bg-glow/15 blur-3xl"></div>
+
+        <div class="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/80">
+            <span class="h-2 w-2 rounded-full bg-glow"></span>
+            Websites + AI Automation that feels like a superpower ⚡
+          </div>
+
+          <h1 class="mt-6 max-w-3xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
+            Your business deserves a website that
+            <span class="grad-text motion-safe:animate-shimmer">moves</span>.
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+            <span class="font-semibold text-white">Webulse</span> builds modern, conversion-focused websites and AI automations
+            that respond fast, capture leads, and remove manual busywork.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contact"
+              class="rounded-2xl bg-pulse px-6 py-3 text-center font-semibold shadow-soft hover:opacity-90"
+              >Start a Project</a
+            >
+            <a
+              href="#services"
+              class="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-center font-semibold text-white hover:bg-white/10"
+              >Explore Services</a
+            >
+          </div>
+
+          <!-- Quick actions -->
+          <div class="mt-7 flex flex-wrap gap-3 text-sm">
+            <a
+              class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-white/85 hover:bg-white/10"
+              href="tel:+34604203943"
+              >📞 +34 604 20 39 43</a
+            >
+            <a
+              class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-white/85 hover:bg-white/10"
+              href="mailto:jeremytetrov@gmail.com?subject=Webulse%20Inquiry"
+              >✉️ jeremytetrov@gmail.com</a
+            >
+            <a
+              class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-white/85 hover:bg-white/10"
+              href="#work"
+              >✨ See examples</a
+            >
+          </div>
+
+          <!-- Live “pulse” card -->
+          <div class="mt-10 grid gap-5 md:grid-cols-3">
+            <div class="glass rounded-2xl p-6 shadow-soft ring-soft">
+              <p class="text-sm font-semibold text-white/80">⚡ Fast & clean builds</p>
+              <p class="mt-2 text-sm text-white/70">Performance-first, mobile-first, SEO-ready.</p>
+              <div class="mt-4 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                <div class="h-full w-[78%] rounded-full bg-glow/80 motion-safe:animate-none" style="transition: width 1200ms;"></div>
+              </div>
+              <p class="mt-2 text-xs text-white/55">Speed score mindset. No bloat.</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 shadow-soft ring-soft md:translate-y-2 md:animate-floaty motion-safe:animate-none">
+              <p class="text-sm font-semibold text-white/80">🎯 Built to convert</p>
+              <p class="mt-2 text-sm text-white/70">Clear offer, trust signals, and strong CTAs.</p>
+              <div class="mt-4 flex items-center gap-2 text-xs text-white/60">
+                <span class="rounded-full bg-white/10 px-3 py-1">Copy structure</span>
+                <span class="rounded-full bg-white/10 px-3 py-1">CTA flow</span>
+                <span class="rounded-full bg-white/10 px-3 py-1">Analytics</span>
+              </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6 shadow-soft ring-soft">
+              <p class="text-sm font-semibold text-white/80">🤖 Automation that saves hours</p>
+              <p class="mt-2 text-sm text-white/70">Leads routed instantly, follow-ups automated, pipeline organized.</p>
+              <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs text-white/65">
+                <div class="rounded-xl bg-white/5 py-2 ring-soft">Email</div>
+                <div class="rounded-xl bg-white/5 py-2 ring-soft">CRM</div>
+                <div class="rounded-xl bg-white/5 py-2 ring-soft">AI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Services -->
+      <section id="services" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+        <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-black tracking-tight md:text-4xl">Services</h2>
+            <p class="mt-3 max-w-2xl text-white/70">
+              Tap a service to see what we actually build. No fluff, just outcomes.
+            </p>
+          </div>
+          <a href="#contact" class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold hover:bg-white/10"
+            >Contact Webulse</a
+          >
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-12">
+          <!-- Tabs -->
+          <div class="md:col-span-5">
+            <div class="grid gap-3">
+              <button data-tab="web" class="tab-btn glass rounded-2xl p-5 text-left ring-soft hover:bg-white/10">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <p class="font-bold">Business Websites</p>
+                    <p class="mt-1 text-sm text-white/70">Modern site that turns visitors into inquiries.</p>
+                  </div>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">Web</span>
+                </div>
+              </button>
+
+              <button data-tab="ai" class="tab-btn glass rounded-2xl p-5 text-left ring-soft hover:bg-white/10">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <p class="font-bold">AI Automations</p>
+                    <p class="mt-1 text-sm text-white/70">Automate replies, intake, scheduling, and handoffs.</p>
+                  </div>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">AI</span>
+                </div>
+              </button>
+
+              <button data-tab="seo" class="tab-btn glass rounded-2xl p-5 text-left ring-soft hover:bg-white/10">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <p class="font-bold">SEO + Local Visibility</p>
+                    <p class="mt-1 text-sm text-white/70">Get found by people ready to buy.</p>
+                  </div>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">SEO</span>
+                </div>
+              </button>
+
+              <button data-tab="support" class="tab-btn glass rounded-2xl p-5 text-left ring-soft hover:bg-white/10">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <p class="font-bold">Ongoing Support</p>
+                    <p class="mt-1 text-sm text-white/70">Updates, improvements, and new automations.</p>
+                  </div>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">Care</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Panel -->
+          <div class="md:col-span-7">
+            <div class="glass rounded-2xl p-7 shadow-soft ring-soft">
+              <div id="tabPanel" class="min-h-[260px]">
+                <!-- Filled by JS -->
+              </div>
+
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#contact"
+                  class="rounded-2xl bg-pulse px-6 py-3 text-center font-semibold hover:opacity-90"
+                  >Tell us what you need</a
+                >
+                <a
+                  href="mailto:jeremytetrov@gmail.com?subject=Webulse%20Project%20Inquiry"
+                  class="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-center font-semibold text-white hover:bg-white/10"
+                  >Email us</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work slider -->
+      <section id="work" class="border-y border-white/10 bg-mist/40">
+        <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+          <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="text-3xl font-black tracking-tight md:text-4xl">Work</h2>
+              <p class="mt-3 max-w-2xl text-white/70">
+                Replace these placeholders with your real projects anytime. The slider is ready.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button id="prevWork" class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold hover:bg-white/10">
+                ←
+              </button>
+              <button id="nextWork" class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold hover:bg-white/10">
+                →
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-10 glass rounded-2xl p-7 shadow-soft ring-soft">
+            <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div class="max-w-2xl">
+                <p id="workTag" class="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs text-white/70"></p>
+                <h3 id="workTitle" class="mt-3 text-2xl font-black"></h3>
+                <p id="workDesc" class="mt-3 text-white/70"></p>
+
+                <ul id="workBullets" class="mt-5 space-y-2 text-sm text-white/75"></ul>
+
+                <div class="mt-6 flex flex-wrap gap-2" id="workChips"></div>
+              </div>
+
+              <div class="w-full md:w-[320px]">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5 ring-soft">
+                  <p class="text-sm font-semibold text-white/80">Outcome</p>
+                  <p id="workOutcome" class="mt-2 text-sm text-white/70"></p>
+
+                  <div class="mt-4 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                    <div id="workBar" class="h-full w-[60%] rounded-full bg-sky/70" style="transition: width 600ms;"></div>
+                  </div>
+                  <p id="workScore" class="mt-2 text-xs text-white/55"></p>
+
+                  <a
+                    href="#contact"
+                    class="mt-5 block rounded-xl bg-pulse px-4 py-2 text-center text-sm font-semibold hover:opacity-90"
+                    >Build something like this</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-4 text-xs text-white/50">Tip: Use keyboard arrows ← → on desktop.</p>
+        </div>
+      </section>
+
+      <!-- Proof: count-up stats -->
+      <section id="proof" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+        <h2 class="text-3xl font-black tracking-tight md:text-4xl">What clients care about</h2>
+        <p class="mt-3 max-w-2xl text-white/70">
+          Not “features”. Results: speed, lead flow, and less manual work.
+        </p>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="glass rounded-2xl p-7 shadow-soft ring-soft">
+            <p class="text-sm font-semibold text-white/75">Faster lead response</p>
+            <p class="mt-3 text-5xl font-black">
+              <span class="counter" data-to="5">0</span><span class="text-white/60">x</span>
+            </p>
+            <p class="mt-3 text-sm text-white/70">Instant replies + routing so leads don’t go cold.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-7 shadow-soft ring-soft">
+            <p class="text-sm font-semibold text-white/75">Time saved monthly</p>
+            <p class="mt-3 text-5xl font-black">
+              <span class="counter" data-to="20">0</span><span class="text-white/60">+</span>
+            </p>
+            <p class="mt-3 text-sm text-white/70">Automation removes repetitive admin work.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-7 shadow-soft ring-soft">
+            <p class="text-sm font-semibold text-white/75">Better conversion flow</p>
+            <p class="mt-3 text-5xl font-black">
+              <span class="counter" data-to="30">0</span><span class="text-white/60">%</span>
+            </p>
+            <p class="mt-3 text-sm text-white/70">Clear messaging + CTAs + trust signals.</p>
+          </div>
+        </div>
+
+        <div class="mt-10 glass rounded-2xl p-7 ring-soft">
+          <p class="text-sm font-semibold text-white/80">Tiny promise from Webulse:</p>
+          <p class="mt-2 text-sm text-white/70">
+            You’ll never get a “pretty site” that does nothing. Every section earns its spot.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="border-y border-white/10 bg-mist/40">
+        <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+          <h2 class="text-3xl font-black tracking-tight md:text-4xl">FAQ</h2>
+
+          <div class="mt-10 grid gap-5 md:grid-cols-2">
+            <details class="glass rounded-2xl p-6 ring-soft">
+              <summary class="cursor-pointer font-semibold">What do you need from me to start?</summary>
+              <p class="mt-3 text-sm text-white/70">
+                A quick description of your business, your target customer, and what action you want visitors to take
+                (call, book, buy, request quote).
+              </p>
+            </details>
+
+            <details class="glass rounded-2xl p-6 ring-soft">
+              <summary class="cursor-pointer font-semibold">Can you automate my lead process?</summary>
+              <p class="mt-3 text-sm text-white/70">
+                Yes. Intake forms, auto-replies, follow-ups, scheduling, CRM updates, and internal notifications.
+              </p>
+            </details>
+
+            <details class="glass rounded-2xl p-6 ring-soft">
+              <summary class="cursor-pointer font-semibold">Do you work with existing sites?</summary>
+              <p class="mt-3 text-sm text-white/70">
+                Absolutely. We can redesign, improve speed/SEO, rewrite key sections, and add automation on top.
+              </p>
+            </details>
+
+            <details class="glass rounded-2xl p-6 ring-soft">
+              <summary class="cursor-pointer font-semibold">Can you handle the tech stuff?</summary>
+              <p class="mt-3 text-sm text-white/70">
+                Yes. Hosting, domain setup guidance, analytics, forms, and deployment support.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+        <div class="grid gap-10 md:grid-cols-2 md:items-start">
+          <div>
+            <h2 class="text-3xl font-black tracking-tight md:text-4xl">Let’s build your next win.</h2>
+            <p class="mt-3 max-w-xl text-white/70">
+              Tell us what you do and what you want the website/automation to accomplish.
+            </p>
+
+            <div class="mt-8 space-y-3 text-sm text-white/75">
+              <p>
+                📞 Phone:
+                <a class="font-semibold text-white hover:underline" href="tel:+34604203943">+34 604 20 39 43</a>
+              </p>
+              <p>
+                ✉️ Email:
+                <a class="font-semibold text-white hover:underline" href="mailto:jeremytetrov@gmail.com">jeremytetrov@gmail.com</a>
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                class="rounded-2xl bg-pulse px-6 py-3 font-semibold shadow-soft hover:opacity-90"
+                href="tel:+34604203943"
+                >Call now</a
+              >
+              <a
+                class="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-semibold hover:bg-white/10"
+                href="mailto:jeremytetrov@gmail.com?subject=Webulse%20Inquiry"
+                >Email</a
+              >
+            </div>
+          </div>
+
+          <form class="glass rounded-2xl p-6 ring-soft" onsubmit="return handleSubmit(event)">
+            <div class="grid gap-4">
+              <div>
+                <label class="text-sm font-semibold text-white/80">Name</label>
+                <input
+                  name="name"
+                  required
+                  class="mt-2 w-full rounded-xl border border-white/10 bg-ink/60 px-4 py-3 text-sm outline-none focus:border-white/30"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-white/80">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  class="mt-2 w-full rounded-xl border border-white/10 bg-ink/60 px-4 py-3 text-sm outline-none focus:border-white/30"
+                  placeholder="you@company.com"
+                />
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-white/80">What do you need?</label>
+                <select
+                  name="need"
+                  class="mt-2 w-full rounded-xl border border-white/10 bg-ink/60 px-4 py-3 text-sm outline-none focus:border-white/30"
+                >
+                  <option>Website</option>
+                  <option>Website + AI Automation</option>
+                  <option>AI Automation only</option>
+                  <option>Redesign / improvements</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-white/80">Message</label>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  class="mt-2 w-full rounded-xl border border-white/10 bg-ink/60 px-4 py-3 text-sm outline-none focus:border-white/30"
+                  placeholder="What do you do, who do you serve, and what should the site/automation accomplish?"
+                ></textarea>
+              </div>
+
+              <button class="rounded-2xl bg-pulse px-6 py-3 font-semibold shadow-soft hover:opacity-90" type="submit">
+                Send message
+              </button>
+
+              <p class="text-xs text-white/55">
+                This opens an email draft (no backend needed). Later we can connect a real form endpoint.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <footer class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/60 md:flex-row">
+          <p>© <span id="year"></span> Webulse. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a class="hover:text-white" href="#services">Services</a>
+            <a class="hover:text-white" href="#work">Work</a>
+            <a class="hover:text-white" href="#contact">Contact</a>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Sticky bottom CTA (mobile-friendly) -->
+    <div class="fixed inset-x-0 bottom-4 z-50 px-4 md:hidden">
+      <div class="mx-auto max-w-6xl glass flex items-center justify-between gap-3 rounded-2xl p-3 ring-soft shadow-soft">
+        <a href="tel:+34604203943" class="flex-1 rounded-xl bg-pulse px-4 py-3 text-center text-sm font-semibold hover:opacity-90">
+          Call
+        </a>
+        <a
+          href="mailto:jeremytetrov@gmail.com?subject=Webulse%20Inquiry"
+          class="flex-1 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-center text-sm font-semibold hover:bg-white/10"
+        >
+          Email
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn?.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Services tabs content
+      const TAB_CONTENT = {
+        web: {
+          title: "Business Websites",
+          desc:
+            "A modern website that explains your offer clearly, builds trust fast, and makes it easy for clients to contact you.",
+          bullets: [
+            "High-converting structure (hero → proof → offer → CTA)",
+            "Mobile-first + fast loading (no bloat)",
+            "Analytics + tracking so you can measure results",
+            "Contact/lead capture that actually works",
+          ],
+          chips: ["Landing Pages", "Multi-page Sites", "Redesigns", "Performance"],
+        },
+        ai: {
+          title: "AI Automations",
+          desc:
+            "Automations that handle leads instantly: reply, qualify, route, and follow up so your business feels 10x faster.",
+          bullets: [
+            "AI FAQ / assistant to handle common questions",
+            "Automated follow-ups via email (and more if needed)",
+            "Lead routing + notifications so nothing is missed",
+            "Workflow integrations (Zapier/Make + custom logic)",
+          ],
+          chips: ["Lead Intake", "Auto Replies", "Routing", "Workflows"],
+        },
+        seo: {
+          title: "SEO + Local Visibility",
+          desc:
+            "Get found by customers searching right now. Clean technical SEO plus local optimization that makes sense.",
+          bullets: [
+            "On-page SEO: titles, meta, headings, schema basics",
+            "Local content structure for service areas",
+            "Speed + UX improvements that help rankings",
+            "Google Business Profile support (optional)",
+          ],
+          chips: ["On-page SEO", "Local SEO", "Speed", "Content Plan"],
+        },
+        support: {
+          title: "Ongoing Support",
+          desc:
+            "When you need updates, new pages, changes, or automation tweaks, you have a reliable partner ready.",
+          bullets: [
+            "Content updates + new sections",
+            "Conversion improvements over time",
+            "Automation adjustments as needs evolve",
+            "Priority support and maintenance",
+          ],
+          chips: ["Maintenance", "Updates", "Optimization", "Support"],
+        },
+      };
+
+      const tabPanel = document.getElementById("tabPanel");
+      const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+
+      function renderTab(key) {
+        const t = TAB_CONTENT[key];
+        tabButtons.forEach((b) => {
+          const active = b.dataset.tab === key;
+          b.classList.toggle("border-pulse/60", active);
+          b.classList.toggle("bg-white/10", active);
+          b.classList.toggle("ring-soft", !active);
+          if (active) b.style.outline = "2px solid rgba(109,40,217,0.35)";
+          else b.style.outline = "none";
+        });
+
+        tabPanel.innerHTML = `
+          <p class="text-xs uppercase tracking-widest text-white/55">Selected</p>
+          <h3 class="mt-2 text-2xl font-black">${t.title}</h3>
+          <p class="mt-3 text-white/70">${t.desc}</p>
+
+          <ul class="mt-6 space-y-2 text-sm text-white/75">
+            ${t.bullets.map((x) => `<li>✅ ${x}</li>`).join("")}
+          </ul>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            ${t.chips.map((c) => `<span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">${c}</span>`).join("")}
+          </div>
+        `;
+      }
+
+      tabButtons.forEach((btn) => btn.addEventListener("click", () => renderTab(btn.dataset.tab)));
+      renderTab("web");
+
+      // Work slider
+      const WORK = [
+        {
+          tag: "Website",
+          title: "Local Service Landing Page",
+          desc: "A clean, high-converting landing page with clear CTAs and trust signals that actually move visitors to action.",
+          bullets: ["Offer clarity + strong CTA placement", "Mobile-first, fast loading", "Tracking + analytics setup"],
+          chips: ["SEO-ready", "Fast", "Conversion-first"],
+          outcome: "More calls and quote requests from the same traffic.",
+          bar: 78,
+        },
+        {
+          tag: "Automation",
+          title: "AI Lead Intake + Routing",
+          desc: "Form submission triggers an instant reply, tags the lead, and routes it to the right place automatically.",
+          bullets: ["Auto-reply in minutes (not hours)", "Lead logging + pipeline organization", "Internal notifications"],
+          chips: ["Auto follow-up", "CRM", "Workflow"],
+          outcome: "Leads stop slipping through cracks.",
+          bar: 85,
+        },
+        {
+          tag: "Website + AI",
+          title: "Business Site With Smart FAQs",
+          desc: "A full site experience paired with an AI assistant that handles common questions and pushes visitors to contact.",
+          bullets: ["Better user experience", "Less repetitive messaging for you", "More qualified inquiries"],
+          chips: ["AI assistant", "Trust", "Smooth UX"],
+          outcome: "Visitors get answers instantly and convert faster.",
+          bar: 74,
+        },
+      ];
+
+      let workIndex = 0;
+      const workTag = document.getElementById("workTag");
+      const workTitle = document.getElementById("workTitle");
+      const workDesc = document.getElementById("workDesc");
+      const workBullets = document.getElementById("workBullets");
+      const workChips = document.getElementById("workChips");
+      const workOutcome = document.getElementById("workOutcome");
+      const workBar = document.getElementById("workBar");
+      const workScore = document.getElementById("workScore");
+
+      function renderWork(i) {
+        const w = WORK[i];
+        workTag.textContent = w.tag;
+        workTitle.textContent = w.title;
+        workDesc.textContent = w.desc;
+        workBullets.innerHTML = w.bullets.map((b) => `<li>• ${b}</li>`).join("");
+        workChips.innerHTML = w.chips.map((c) => `<span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">${c}</span>`).join("");
+        workOutcome.textContent = w.outcome;
+        workBar.style.width = `${w.bar}%`;
+        workScore.textContent = `Impact indicator: ${w.bar}/100`;
+      }
+
+      document.getElementById("prevWork").addEventListener("click", () => {
+        workIndex = (workIndex - 1 + WORK.length) % WORK.length;
+        renderWork(workIndex);
+      });
+      document.getElementById("nextWork").addEventListener("click", () => {
+        workIndex = (workIndex + 1) % WORK.length;
+        renderWork(workIndex);
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") document.getElementById("prevWork").click();
+        if (e.key === "ArrowRight") document.getElementById("nextWork").click();
+      });
+
+      renderWork(workIndex);
+
+      // Count-up stats on scroll
+      function animateCounter(el, to, duration = 900) {
+        const start = 0;
+        const t0 = performance.now();
+        function tick(t) {
+          const p = Math.min(1, (t - t0) / duration);
+          const val = Math.round(start + (to - start) * (1 - Math.pow(1 - p, 3))); // easeOutCubic-ish
+          el.textContent = val;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const counters = document.querySelectorAll(".counter");
+      let countersDone = false;
+
+      const obs = new IntersectionObserver(
+        (entries) => {
+          if (countersDone) return;
+          const anyVisible = entries.some((e) => e.isIntersecting);
+          if (!anyVisible) return;
+          countersDone = true;
+          counters.forEach((c) => animateCounter(c, Number(c.dataset.to)));
+          obs.disconnect();
+        },
+        { threshold: 0.35 }
+      );
+      counters.forEach((c) => obs.observe(c));
+
+      // Contact form -> mailto
+      function handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const name = data.get("name");
+        const email = data.get("email");
+        const need = data.get("need");
+        const message = data.get("message");
+
+        const to = "jeremytetrov@gmail.com";
+        const subject = encodeURIComponent(`[Webulse Inquiry] ${need} — ${name}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nNeed: ${need}\n\nMessage:\n${message}\n\nPhone (Webulse): +34 604 20 39 43\n`
+        );
+
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        return false;
+      }
+      window.handleSubmit = handleSubmit;
+    </script>
+  </body>
+</html>
